@@ -10,6 +10,7 @@ AS = as
 LD = ld
 
 CPIO = cpio
+STRIP = strip
 
 CFLAGS = -Wall -Wextra -Wno-unused-result -Os -nostdlib
 LDFLAGS	 = --entry main -z noexecstack -static
@@ -20,6 +21,7 @@ all: $(TARGET)
 .PHONY: clean
 
 $(TARGET): $(INIT)
+	$(STRIP) -s $^
 	echo $^ | $(CPIO) -H newc -o > $@
 
 $(INIT): $(OBJS)
