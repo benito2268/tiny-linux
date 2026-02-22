@@ -2,3 +2,6 @@ linux
 out
 *.swp
 *.swo
+*.o
+*.cpio
+*.cpio.gz
