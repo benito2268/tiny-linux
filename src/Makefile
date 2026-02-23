@@ -10,10 +10,17 @@ AS = as
 LD = ld
 
 CPIO = cpio
-STRIP = strip
+STRIP = objcopy
 
-CFLAGS = -Wall -Wextra -Wno-unused-result -Os -nostdlib
-LDFLAGS	 = --entry main -z noexecstack -static
+CFLAGS = -Wall -Wextra -Os \
+		 -nostdlib \
+		 -fno-stack-protector \
+		 -fno-unwind-tables \
+		 -fno-asynchronous-unwind-tables\
+		 -fno-ident \
+		 -fno-pic \
+		 -no-pie
+LDFLAGS	 = --entry main -z noexecstack -static --build-id=none -n 
 
 OBJS = shell.o syscalls.o
 
@@ -21,7 +28,7 @@ all: $(TARGET)
 .PHONY: clean
 
 $(TARGET): $(INIT)
-	$(STRIP) -s $^
+	$(STRIP) --strip-all $^
 	echo $^ | $(CPIO) -H newc -o > $@
 
 $(INIT): $(OBJS)
