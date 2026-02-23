@@ -1,6 +1,8 @@
 ## Tiny Linux
-This has been done many times before, cowabunga here we go again.
-The kernel and initramfs combined are about 770KB - and lack almost everything :)
+This has been done many times before, cowabunga here we go again. The idea of
+this project is to make a Linux 'distro' that is under 1MB total (including
+kernel).
+The kernel and initramfs combined are about 773KB - and lack almost everything :)
 
 ## Build and Run
 * Install everything you normally would need to build a kernel
