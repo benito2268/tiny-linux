@@ -1,3 +1,4 @@
+# build script
 #!/bin/bash
 
 SRC_DIR="./src"
