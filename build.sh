@@ -19,7 +19,7 @@ make -C "$LINUX_DIR" allnoconfig
 cp ./tinylinux_defconfig "$LINUX_DIR"/arch/x86/configs
 make -C "$LINUX_DIR" tinylinux_defconfig
 
-make -C "$LINUX_DIR" -j $(nproc)
+make -C "$LINUX_DIR" CC="gcc -std=gnu11" -j $(nproc)
 
 # build the initramfs
 make -C "$SRC_DIR"
